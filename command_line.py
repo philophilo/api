@@ -1,5 +1,6 @@
 from urllib import quote
 from urllib import urlopen
+import argparse
 import json
 
 def getWikipedia(term):
@@ -31,4 +32,12 @@ def getWikipedia(term):
     print "__________________________________"
     print page_id, page_title
     print text
-getWikipedia("Barack Obama")
+
+def main():
+    parser = argparse.ArgumentParser(description="Query")
+    parser.add_argument("query")
+    args = parser.parse_args()
+    getWikipedia(args.query)
+
+if __name__ == "__main__":
+    main()
